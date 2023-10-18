@@ -20,3 +20,4 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 
 // questo è il "crocevia" che porta alle varie Route di Page-controller 
 Route::resource('/comics', ComicsController::class);
+Route::resource('/comics/{id}', ComicsController::class);
