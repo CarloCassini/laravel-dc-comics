@@ -108,12 +108,17 @@ Creo un Model che rappresenti la tabella appena realizzata con il comando
 php artisan make:model House
 ```
 
-## Creazione di un Controller per la risorsa
+## Creazione di un Controller per la risorsa (sotto--> x risorsa)
 
 Creo un Controller per la risorsa `House` con il comando
 
 ```
 php artisan make:controller HouseController
+```
+
+```
+<!-- solo per la risorsa -->
+php artisan make:controller --resource HouseController
 ```
 
 Importo il controller nel file `routes/web.php` per assegnargli delle rotte
