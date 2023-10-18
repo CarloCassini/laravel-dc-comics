@@ -41,7 +41,19 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // metto i dati passati col form dentro una variabile $data
+        $data = $request->all();
+        // creo un nuovo oggetto $comic che riempirò con i dati passati
+        $comic = new Comic();
+        // riempio il nuovo oggetto con i dati passati dal form
+        $comic->fill($data);
+        // salvo l'oggetto nel mio db
+        $comic->save();
+
+        // mostro la pagina di index con tutti i record, compreso quello nuovo
+        $comics = Comic::all();
+        return view('comics.index', compact('comics'));
     }
 
     /**
