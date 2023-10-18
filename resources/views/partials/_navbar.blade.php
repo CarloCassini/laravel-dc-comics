@@ -15,6 +15,10 @@
           <a class="nav-link {{ Route::currentRouteName() == 'comics.index' ? 'active' : '' }}" href="{{ route('comics.index') }}"
             aria-current="page">LISTA COMICS<span class="visually-hidden">(current)</span></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Route::currentRouteName() == 'comics.create' ? 'active' : '' }}" href="{{ route('comics.create') }}"
+            aria-current="page">create comics<span class="visually-hidden">(current)</span></a>
+        </li>
         
       </ul>
       <form class="d-flex my-2 my-lg-0">

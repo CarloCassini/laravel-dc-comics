@@ -27,6 +27,9 @@ class ComicsController extends Controller
      */
     public function create()
     {
+
+        // $comics = Comic::all();
+        return view('comics.create');
         //
     }
 
