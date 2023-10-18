@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// uso il model dei comics
+use App\Models\Comic;
+
 class ComicsController extends Controller
 {
     /**
@@ -13,7 +16,10 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        dd('wakka');
+        $comics = Comic::all();
+        // dd($comics);
+
+        return view('comics.index', compact('comics'));
         //
     }
 
