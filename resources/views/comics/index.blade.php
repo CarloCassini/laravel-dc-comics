@@ -31,11 +31,11 @@
         <td>{{$comic->series}}</td>
         <td>{{$comic->sale_date}}</td>
         <td>{{$comic->type}}</td>
-        <a href="{{ route::('comics/'.$comic->id)}}">
-            <td style="background-color: blue">
+        <td style="background-color: blue">
+            <a href="{{ route('comics.show' , $comic->id)}}">
                 VAI
+            </a>
             </td>
-        </a>
       </tr>
       @endforeach
     </tbody>
