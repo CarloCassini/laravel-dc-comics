@@ -9,7 +9,9 @@
         <a href="{{route('comics.index')}}" class="btn btn-primary"> torna alla lista</a>
     @endif
 
-{{-- intestazione della tabella --}}
+{{-- intestazione della tabella --}} 
+<a href="{{route('comics.create')}}" class="btn btn-primary"> creane uno nuovo</a>
+
     <table class="table">
         <thead>
           <tr>
@@ -38,14 +40,14 @@
         <td>{{$comic->type}}</td>
         <td >
           <div class="d-flex flex-column button-change-db">
-            <a href="{{ route('comics.show' , $comic->id)}}" style="background-color: blue" class="px-5 py-2">
+            <a href="{{ route('comics.show' , $comic->id)}}" style="background-color: blue" class="px-5 py-2 m-1">
                 dettaglio
             </a>
-            <a href="{{ route('comics.edit' , $comic)}}" style="background-color: green " class="px-5 py-2">
+            <a href="{{ route('comics.edit' , $comic)}}" style="background-color: green " class="px-5 py-2 m-1">
                modifica
             </a>
             <form action="{{ route('comics.destroy' , $comic)}}" 
-            style="background-color: red" class="px-5 py-2" method="POST">
+            style="background-color: red" class="px-5 py-2 m-1" method="POST">
               {{-- i seguenti 2 campi servono a fare funzionare il form --}}
               @csrf
               @method('DELETE')
@@ -60,6 +62,5 @@
     </tbody>
   </table>
 
-  <a href="{{route('comics.create')}}" class="btn btn-primary"> creane uno nuovo</a>
-  </section>
+   </section>
 @endsection
