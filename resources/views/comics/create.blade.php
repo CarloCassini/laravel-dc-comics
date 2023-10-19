@@ -14,7 +14,7 @@
         <input type="text" class="form-control" aria-describedby="title" name="title">
       </div>
   
-      <div class="input-group my-3">
+      <div class="input-group my-3 textarea-form">
         <span class="input-group-text" id="description">description</span>
         <textarea class="form-control" aria-describedby="description" name="description"></textarea>
       </div>

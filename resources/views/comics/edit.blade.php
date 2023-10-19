@@ -34,9 +34,7 @@
         <input type="text" class="form-control" aria-describedby="series" name="series" value="{{$comic['series']}}">
       </div>
 
-      <button class="btn btn-primary"> salva
-
-      </button>
+      <button class="btn btn-primary"> salva      </button>
     </form>
   </section>
 @endsection

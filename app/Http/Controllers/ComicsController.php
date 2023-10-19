@@ -90,7 +90,12 @@ class ComicsController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        $comic->update($data);
+
+        // qui chiamiamo una redirect, gestisce meglio cronologia e navigazine, ma non l'ho capito alla grandissima
+        return redirect()->route('comics.show', $comic->id)
+            ->with('success', 'ben fatto');
     }
 
     /**
