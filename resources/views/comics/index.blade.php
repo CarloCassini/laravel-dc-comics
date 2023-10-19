@@ -44,9 +44,15 @@
             <a href="{{ route('comics.edit' , $comic)}}" style="background-color: green " class="px-5 py-2">
                modifica
             </a>
-            <a href="{{ route('comics.show' , $comic->id)}}" style="background-color: red" class="px-5 py-2">
-               cancella
-            </a>
+            <form action="{{ route('comics.destroy' , $comic)}}" 
+            style="background-color: red" class="px-5 py-2" method="POST">
+              {{-- i seguenti 2 campi servono a fare funzionare il form --}}
+              @csrf
+              @method('DELETE')
+             
+              <button class="btn"> cancella </button>
+            </form>
+
           </div>
         </td>
       </tr>
