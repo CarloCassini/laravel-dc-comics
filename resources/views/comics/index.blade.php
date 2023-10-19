@@ -44,16 +44,11 @@
                 dettaglio
             </a>
             <a href="{{ route('comics.edit' , $comic)}}" style="background-color: green " class="px-5 py-2 m-1">
-               modifica
+              modifica
+           </a>
+             <a href="#" style="background-color: red " class="px-5 py-2 m-1" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$comic->id}}">
+            cancella
             </a>
-            <form action="{{ route('comics.destroy' , $comic)}}" 
-            style="background-color: red" class="px-5 py-2 m-1" method="POST">
-              {{-- i seguenti 2 campi servono a fare funzionare il form --}}
-              @csrf
-              @method('DELETE')
-             
-              <button class="btn"> cancella </button>
-            </form>
 
           </div>
         </td>
@@ -63,4 +58,36 @@
   </table>
 
    </section>
+@endsection
+
+{{-- qui viene gestito il popup di richiesta della modal di cancellazione --}}
+@section('modals')
+  @foreach ($comics as $comic)
+  <div class="modal fade" id="delete-modal-{{$comic->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina elemento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        Sicuro di voler eliminare la riga dal titolo <span class="fw-bolder"> {{$comic->title}} </span> ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+          {{-- deve trattarsi di un form per poter cambiare il metodo in delete --}}
+          <form action="{{ route('comics.destroy' , $comic)}}"  method="POST">
+
+            {{-- i seguenti 2 campi servono a fare funzionare il form --}}
+            @csrf
+            @method('DELETE')
+                       
+            <button class="btn btn-danger">Save changes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
 @endsection
